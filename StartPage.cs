@@ -25,11 +25,13 @@ namespace Naidis_Ivanov_Nikita
 
             //Juku ja Kinno
             Console.WriteLine(TeineOsa.Jukku);
+            Console.WriteLine(TeineOsa.Jukku(nimi));
+            Console.WriteLine(TeineOsa.Jukku("Python"));
 
 
 
-           
-            
+
+
         }
     }
 
