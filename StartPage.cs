@@ -9,24 +9,27 @@ namespace Naidis_Ivanov_Nikita
     {
         public static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("d");
-            
-            try
-            {
-                Console.WriteLine("Arv1:");
-                float a = float.Parse(Console.ReadLine());
-                Console.WriteLine("Arv 2:");
-                float b = float.Parse(Console.ReadLine());
-                float vastus = Funktsioonid.Kalkulaator(a,b);
-                Console.WriteLine(vastus);
-            }
-            catch (Exception e)
-            {
+            //Console.OutputEncoding = Encoding.UTF8;
+            //Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.WriteLine("d");
+            //string tekst = "gjfdsghfdjfs";
 
-                Console.WriteLine(e);
-            }
+            //Random rnd = new Random();
+            //int juhuslikarv = rnd.Next(-5, 32);
+            //Console.WriteLine(Funktsioonid.Kuu_nimetus(juhuslikarv));
+            //juhuslikarv = rnd.Next(-5, 32);
+            //tekst = Funktsioonid.Kuu_nimetus(juhuslikarv);
+            //Console.WriteLine(tekst);
+            Console.WriteLine("Mis on sinu nimi:");
+            string nimi = Console.ReadLine();
+
+            //Juku ja Kinno
+            Console.WriteLine(TeineOsa.Jukku);
+
+
+
+           
+            
         }
     }
 
