@@ -59,8 +59,77 @@ namespace Naidis_Ivanov_Nikita
             }
             return kuu;
         }
+        
+        int[] arvud = new int[5];
+        public static void muudaelementmaasiivis(int[] arvud)
+        {
+            
+            
+            Console.WriteLine("Kuhu");
+            int positsioon = int.Parse(Console.ReadLine());
+            Console.WriteLine("Milliseks");
+            int uus_arv = int.Parse(Console.ReadLine());
+            arvud[positsioon - 1] = uus_arv;
+            Console.WriteLine("uuendatud masiiv:");
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                Console.WriteLine($"arvud:{arvud[i]}");
+            }
+        }
+        public static int[] TäidaMassiiv(int[] arvud)
+        {
+            for (int i = 0; i > arvud.Length; i++)
+            {
+                Console.WriteLine($"sisesta {i + 1} arv");
+                try
+                {
+                    arvud[i] = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
 
+                    Console.WriteLine(e);
+                }
+            }
+            return arvud;
+        }
+        public static int[] Massiivide_kuvamine(int[] arvud)
+        {
+            Console.WriteLine("3. Osa. Kordused ja Listid massiivid");
+            for (int i = 0; i < 10; i++)
+            {
 
+            }
+            int j = 0;
+            while (j < 10)
+            {
+                Console.WriteLine($"tere{j + 1}");
+                j++;
+            }
+            do
+            {
+                Console.WriteLine($"tere,{11 - j}!");
+                j--;
+            } while (j != 0);
+
+            
+            foreach (var arv in arvud)
+            {
+                Console.WriteLine($"sisestatud arv: {arv}");
+            }
+
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                Console.WriteLine($"{arvud[i]}");
+            }
+
+            for (int i = arvud.Length - 1; i > -1; i--)
+            {
+                Console.WriteLine($"sisestatud arv: {arvud[i]}");
+            }
+            return arvud;
+        }
+        
     }
 }
     
