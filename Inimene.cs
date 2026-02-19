@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Naidis_Ivanov_Nikita
 {
-    internal class Inimene
+    public class Inimene
     {
 
         public string Nimi;

@@ -6,56 +6,8 @@ using System.Threading.Channels;
 
 namespace Naidis_Ivanov_Nikita
 {
-    internal class TeineOsa
+    public class TeineOsa
     {
-        //public static string Jukku(string nimi)
-        //{
-        //    string otsus = "";
-        //    string vastud = "";
-        //    int vanus = 0;
-        //    string pilet = "";
-        //    Console.WriteLine("Tere palun sisesta oma nimi");
-        //    nimi = Console.ReadLine();
-        //    if (nimi.ToLower() == "jukku")
-        //    {
-        //        Console.WriteLine("Kui vana sa oled?");
-        //        try
-        //        {
-        //            vanus = int.Parse(Console.ReadLine());
-        //            if (vanus > 0 && vanus < 100)
-        //            {
-        //                if (vanus < 6)
-        //                {
-        //                    pilet = "Tasuta";
-        //                }
-        //                else if (vanus > 6 && vanus <= 14)
-        //                {
-        //                    pilet = "Lastepilet";
-        //                }
-        //                else if (vanus >= 14 && vanus < 65)
-        //                {
-        //                    pilet = "Täispilet";
-        //                }
-        //                else if (vanus >= 65)
-        //                {
-        //                    pilet = "Sooduspilet";
-        //                }
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Viga");
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-
-        //            Console.WriteLine(e);
-        //        }
-        //        otsus = $"Lähme kinno + {pilet}";
-        //    }
-        //    return otsus;
-        //}
-
         public static void Pinginaabrid()
         {
             Console.Write("Sisesta esimese inimese nimi: ");
@@ -65,8 +17,8 @@ namespace Naidis_Ivanov_Nikita
             string nimi2 = Console.ReadLine();
 
             Console.WriteLine($"{nimi1} ja {nimi2} on täna pinginaabrid!");
-
         }
+
         public static void Toa()
         {
             Console.WriteLine("Mis on sinu toa pikkus?");
@@ -92,10 +44,11 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine($"Sinu toa pindala on {tulemus} ruutmeetrit");
             }
         }
+
         public static void temperatuur()
         {
-              Console.WriteLine("Milline temperaatur on sinu toas?");
-              int kasutajavastus = int.Parse(Console.ReadLine());
+            Console.WriteLine("Milline temperaatur on sinu toas?");
+            int kasutajavastus = int.Parse(Console.ReadLine());
             if (kasutajavastus > 18)
             {
                 Console.WriteLine("See on üle kaheksateistkümne kraadi (soovitav toasoojus talvel)");
@@ -104,12 +57,6 @@ namespace Naidis_Ivanov_Nikita
             {
                 Console.WriteLine("Selge");
             }
-        
-        
-        
-        
-        
-        
         }
 
         public static void Pikkus()
@@ -129,17 +76,18 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("Sa oled lühike");
             }
         }
-        public static void PikkjaSugu() 
+
+        public static void PikkjaSugu()
         {
             Console.WriteLine("Tere, kas sa oled mees või naine?");
             string sugu = Console.ReadLine();
-            
+
             if (sugu == "naine")
             {
                 Console.WriteLine("Kui pikk sa oled santimeetrites?");
                 int pikkus1 = int.Parse(Console.ReadLine());
                 if (pikkus1 > 150 && pikkus1 <= 175)
-                { 
+                {
                     Console.WriteLine("Sa oled keskmine");
                 }
                 else if (pikkus1 > 175 && pikkus1 <= 200)
@@ -168,87 +116,31 @@ namespace Naidis_Ivanov_Nikita
                     Console.WriteLine("Sa oled lühike");
                 }
             }
-             
         }
+
         public static void Ostud()
         {
             Console.WriteLine("Kas sa tahad osta piima?");
             string piim = Console.ReadLine();
             double piim_hind = 1.20;
-            
+
             Console.WriteLine("Kas sa tahad osta saia?");
             string sai = Console.ReadLine();
             double sai_hind = 0.80;
-            
+
             Console.WriteLine("Kas sa tahad osta leiba?");
             string leib = Console.ReadLine();
             double leib_hind = 0.80;
 
-            if (piim == "jah")
-            {
-                double ostukorv = piim_hind;
-                if (sai == "jah")
-                {
-                     ostukorv = sai_hind+piim_hind;
-                    if(leib == "jah")
-                    {
-                        ostukorv = leib_hind + sai_hind + piim_hind;
-                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
-                    }
-                }
-            }
+            double ostukorv = 0;
+            if (piim == "jah") ostukorv += piim_hind;
+            if (sai == "jah") ostukorv += sai_hind;
+            if (leib == "jah") ostukorv += leib_hind;
+
+            if (ostukorv > 0)
+                Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
             else
-            {
-                if (sai == "jah")
-                {
-                    double ostukorv = sai_hind;
-                    if (leib == "jah")
-                    {
-                        ostukorv = leib_hind + sai_hind;
-                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
-                    }
-                }
-                else
-                {
-                    if (leib == "jah")
-                    {
-                        double ostukorv = leib_hind;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sa ei ostnud midagi");
-                    }
-                }
-
-
-
-
-
-            }
-
-
-
-
-
-
-
-
+                Console.WriteLine("Sa ei ostnud midagi");
         }
-
-
-
-
-
-
     }
 }
-
-
