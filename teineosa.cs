@@ -170,21 +170,85 @@ namespace Naidis_Ivanov_Nikita
             }
              
         }
-  
+        public static void Ostud()
+        {
+            Console.WriteLine("Kas sa tahad osta piima?");
+            string piim = Console.ReadLine();
+            double piim_hind = 1.20;
             
-        
-        
-        
-        
-        
-        
+            Console.WriteLine("Kas sa tahad osta saia?");
+            string sai = Console.ReadLine();
+            double sai_hind = 0.80;
+            
+            Console.WriteLine("Kas sa tahad osta leiba?");
+            string leib = Console.ReadLine();
+            double leib_hind = 0.80;
+
+            if (piim == "jah")
+            {
+                double ostukorv = piim_hind;
+                if (sai == "jah")
+                {
+                     ostukorv = sai_hind+piim_hind;
+                    if(leib == "jah")
+                    {
+                        ostukorv = leib_hind + sai_hind + piim_hind;
+                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
+                    }
+                }
+            }
+            else
+            {
+                if (sai == "jah")
+                {
+                    double ostukorv = sai_hind;
+                    if (leib == "jah")
+                    {
+                        ostukorv = leib_hind + sai_hind;
+                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Sinu ostukorv on {ostukorv} eurot");
+                    }
+                }
+                else
+                {
+                    if (leib == "jah")
+                    {
+                        double ostukorv = leib_hind;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sa ei ostnud midagi");
+                    }
+                }
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
     }
-
-                
-
-        
-    
-    
 }
 
 
