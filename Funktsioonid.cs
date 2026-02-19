@@ -180,6 +180,21 @@ namespace Naidis_Ivanov_Nikita
                 i++;
             } while (i<nimed.Length);
         }
+        public static void KuniMärksõnani(string märksõna, string fraas)
+        {
+            do
+            {
+                
+                Console.WriteLine(fraas);
+                märksõna = Console.ReadLine();
+            } while (märksõna != "jah");
+        }
+        public static void ArvaArv()
+        {
+            int[] katsed = new int[5];
+
+        }
+
     }
 
 }

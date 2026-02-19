@@ -28,7 +28,10 @@ namespace Naidis_Ivanov_Nikita
             //8 ül
             string[] opilased = { "Anna", "Peter", "Markus", "Artur", "Mati", "Alina" };
             Funktsioonid.Õpilastegamängimine(opilased);
-            
+            //4 ül
+            string märksõna = "jah";
+            string fraas = "Osta elevant ära!";
+            Funktsioonid.KuniMärksõnani(märksõna,fraas);
             
             //Inimene inimene1 = new Inimene("Nimi", 144);
             //inimesed.Add(inimene1);
