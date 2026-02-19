@@ -37,6 +37,19 @@ namespace Naidis_Ivanov_Nikita
             }
             return Tuple.Create(summa, keskmine, korrutis);
         }
+        //public static Tuple<int, double, Inimene, Inimene> Statistika(List<Inimene> inimesed)
+        //{
+        //    int summa = inimesed.Sum(i => i.Vanus);
+        //    double keskmine = inimesed.Average(i => i.Vanus);
+        //    Inimene vanem = inimesed.OrderByDescending(i => i.Vanus).First();
+        //    Inimene noorem = inimesed.OrderBy(i => i.Vanus).First();
+        //    return Tuple.Create(summa, keskmine, vanem, noorem);
+
+
+
+
+
+        //}
     }
 
 }
