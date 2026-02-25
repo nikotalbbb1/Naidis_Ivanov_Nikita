@@ -27,6 +27,8 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("9.  Korrutustabel");
                 Console.WriteLine("10. Õpilastega mängimine");
                 Console.WriteLine("11. Kuni märksõnani");
+                Console.WriteLine("12. Inimeste statistika");
+                Console.WriteLine("13. Positiivsed ja negatiivsed");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -86,6 +88,32 @@ namespace Naidis_Ivanov_Nikita
                         string märksõna = "";
                         Funktsioonid.KuniMärksõnani(märksõna, "Osta elevant ära!");
                         break;
+                    case "12":
+
+                        List<Inimene> inimesed2 = new List<Inimene>();
+                        for (int i = 0; i < 5; i++)
+                        {
+                            
+                            Console.WriteLine($"Mis on {i + 1}. Nimi?:  ");
+                            string nimi = Console.ReadLine();
+                            Console.WriteLine($"Mis on {i + 1}. Inimese vanus?:  ");
+                            int vanus = int.Parse(Console.ReadLine());
+                            Inimene inimene = new Inimene(nimi, vanus);
+                            inimesed2.Add(inimene);
+
+                        }
+                        kolmosa.Statistika(inimesed2);
+                        var inimese = kolmosa.Statistika(inimesed2);
+                        Console.WriteLine($"Summa: {inimese.Item1}");
+                        Console.WriteLine($"Keskmine: {inimese.Item2}");
+                        Console.WriteLine($"Vanem inimene: {inimese.Item3.Nimi}");
+                        Console.WriteLine($"Noorem inimene: {inimese.Item4.Nimi}");
+                        break;
+                    case "13":
+                        kolmosa.PositiivsedjaNegatiivsed();
+                        break;
+
+
                     case "0":
                         tööta = false;
                         Console.WriteLine("Nägemist!");
