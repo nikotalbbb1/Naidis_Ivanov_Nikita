@@ -33,6 +33,7 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("14. Failitöötlus");
                 Console.WriteLine("15. Faili lugemine");
                 Console.WriteLine("16. Ridade lugemine");
+                Console.WriteLine("17. Ridade lugemine Listiks");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -124,6 +125,11 @@ namespace Naidis_Ivanov_Nikita
                         break;
                     case "16":
                         Osa4.Ridadelugemine();
+                        break;
+                    case "17":
+                        Console.WriteLine("failinimi");
+                        string fail = Console.ReadLine();
+                        Osa4.Ridadelugemine_listiks(fail);
                         break;
                     case "0":
                         tööta = false;

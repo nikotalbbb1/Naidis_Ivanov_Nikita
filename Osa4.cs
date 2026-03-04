@@ -62,7 +62,26 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("Viga failiga!");
             }
         }
+        public static List<string> Ridadelugemine_listiks(string file)
+        {
+            List<string> kuude_list = new List<string>();
+            try
+            {
+                string path = @$"..\..\..\{file}";
+                foreach (string rida in File.ReadAllLines(path))
+                {
+                    kuude_list.Add(rida);
+                }
+                
 
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Viga failiga!");
+            }
+            return kuude_list;
+        }
+        
     }
 
 }
