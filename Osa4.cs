@@ -29,7 +29,7 @@ namespace Naidis_Ivanov_Nikita
         {
             try
             {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
+                string path = @"..\..\..\Kuud.txt";
                 StreamReader text = new StreamReader(path);
                 string laused = text.ReadToEnd();
                 text.Close();
@@ -45,11 +45,17 @@ namespace Naidis_Ivanov_Nikita
             List<string> kuude_list = new List<string>();
             try
             {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
+                string path = @"..\..\..\Kuud.txt";
                 foreach (string rida in File.ReadAllLines(path))
                 {
                     kuude_list.Add(rida);
                 }
+                foreach (string item in kuude_list)
+                {
+                    Console.WriteLine(item);
+                }
+                
+
             }
             catch (Exception)
             {
