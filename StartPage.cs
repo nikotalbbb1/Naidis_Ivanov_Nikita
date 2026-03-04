@@ -31,6 +31,8 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("13. Positiivsed ja negatiivsed");
                 Console.WriteLine("--- Neljas osa ---");
                 Console.WriteLine("14. Failitöötlus");
+                Console.WriteLine("15. Faili lugemine");
+                Console.WriteLine("16. Ridade lugemine");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -117,7 +119,12 @@ namespace Naidis_Ivanov_Nikita
                     case "14":
                         Osa4.failitöötlus();
                         break;
-
+                    case "15":
+                        Osa4.Faililugemine();
+                        break;
+                    case "16":
+                        Osa4.Ridadelugemine();
+                        break;
                     case "0":
                         tööta = false;
                         Console.WriteLine("Nägemist!");

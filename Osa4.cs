@@ -8,7 +8,7 @@ namespace Naidis_Ivanov_Nikita
 {
     public class Osa4
     {
-        public static void Failitöötlus()
+        public static void failitöötlus()
         {
             try
             {
@@ -25,6 +25,38 @@ namespace Naidis_Ivanov_Nikita
             }
 
         }
+        public static void  Faililugemine()
+        {
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
+                StreamReader text = new StreamReader(path);
+                string laused = text.ReadToEnd();
+                text.Close();
+                Console.WriteLine(laused);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Mingi viga failiga, ei saa faili lugeda");
+            }
+        }
+        public static void Ridadelugemine()
+        {
+            List<string> kuude_list = new List<string>();
+            try
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
+                foreach (string rida in File.ReadAllLines(path))
+                {
+                    kuude_list.Add(rida);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Viga failiga!");
+            }
+        }
+
     }
 
 }
