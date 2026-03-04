@@ -29,6 +29,8 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("11. Kuni märksõnani");
                 Console.WriteLine("12. Inimeste statistika");
                 Console.WriteLine("13. Positiivsed ja negatiivsed");
+                Console.WriteLine("--- Neljas osa ---");
+                Console.WriteLine("14. Failitöötlus");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -112,7 +114,9 @@ namespace Naidis_Ivanov_Nikita
                     case "13":
                         kolmosa.PositiivsedjaNegatiivsed();
                         break;
-
+                    case "14":
+                        Osa4.Failitöötlus();
+                        break;
 
                     case "0":
                         tööta = false;
