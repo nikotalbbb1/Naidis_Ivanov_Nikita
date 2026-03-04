@@ -115,7 +115,7 @@ namespace Naidis_Ivanov_Nikita
                         kolmosa.PositiivsedjaNegatiivsed();
                         break;
                     case "14":
-                        Osa4.Failitöötlus();
+                        Osa4.failitöötlus();
                         break;
 
                     case "0":
