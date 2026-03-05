@@ -34,6 +34,8 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("15. Faili lugemine");
                 Console.WriteLine("16. Ridade lugemine");
                 Console.WriteLine("17. Ridade lugemine Listiks");
+                Console.WriteLine("18. Lemmiktoit");
+                Console.WriteLine("19. Kogu Menu");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -130,6 +132,15 @@ namespace Naidis_Ivanov_Nikita
                         Console.WriteLine("failinimi");
                         string fail = Console.ReadLine();
                         Osa4.Ridadelugemine_listiks(fail);
+                        break;
+                    case "18":
+                        Osa4.Lemmiktoit();
+                        break;
+                    case "19":
+                        Osa4.KoguMenu();
+                        break;
+                    case "20":
+                        Osa4.Koostisosade_muutmine();
                         break;
                     case "0":
                         tööta = false;
