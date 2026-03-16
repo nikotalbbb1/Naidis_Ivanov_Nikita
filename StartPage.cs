@@ -15,7 +15,7 @@ namespace Naidis_Ivanov_Nikita
                 Console.Clear();
                 Console.WriteLine("========== PEAMENÜÜ ==========");
                 Console.WriteLine("--- Teine osa ---");
-                Console.WriteLine("1.  Pinginaabrid");
+                Console.WriteLine("1.  Lemmiktoidu salvestamine faili");
                 Console.WriteLine("2.  Toa pindala ja remont");
                 Console.WriteLine("3.  Temperatuur");
                 Console.WriteLine("4.  Pikkus");
@@ -36,6 +36,9 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("17. Ridade lugemine Listiks");
                 Console.WriteLine("18. Lemmiktoit");
                 Console.WriteLine("19. Kogu Menu");
+                Console.WriteLine("--- Viies osa ---");
+                Console.WriteLine("21. Person");
+                Console.WriteLine("22. Tuple");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -141,6 +144,18 @@ namespace Naidis_Ivanov_Nikita
                         break;
                     case "20":
                         Osa4.Koostisosade_muutmine();
+                        break;
+                    case "21":
+                        Osa5.Person1();
+                        break;
+                    case "22":
+                        Osa5.Tuple();
+                        break;
+                    case "23":
+                        Osa5.List();
+                        break;
+                    case "24":
+                        Osa5.LinkedList();
                         break;
                     case "0":
                         tööta = false;

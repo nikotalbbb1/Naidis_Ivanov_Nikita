@@ -89,7 +89,7 @@ namespace Naidis_Ivanov_Nikita
                 StreamWriter text = new StreamWriter(path, true);
                 Console.WriteLine("Sisesta ühte Itaalia toidu nime:");
                 string lause = Console.ReadLine();
-                text.WriteLine(lause);
+                text.WriteLine(lause); 
                 text.Close();
             }
             catch (Exception)
