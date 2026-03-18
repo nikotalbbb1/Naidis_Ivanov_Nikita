@@ -109,9 +109,15 @@ namespace Naidis_Ivanov_Nikita
             loetelu.RemoveFirst();
             loetelu.RemoveLast();
             loetelu.AddLast(555);
+            foreach (int arv in loetelu)
+                Console.WriteLine(arv);
             loetelu.Remove(555);
-            
-
+            foreach (int arv in loetelu)
+                Console.WriteLine(arv);
+            loetelu.AddBefore(loetelu.Find(555),1);
+            loetelu.AddAfter(loetelu.Find(555), 1);
+            foreach (int arv in loetelu)
+                Console.WriteLine(arv);
         }
 
 
