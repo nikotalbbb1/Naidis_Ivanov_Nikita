@@ -157,6 +157,13 @@ namespace Naidis_Ivanov_Nikita
                     case "24":
                         Osa5.LinkedList();
                         break;
+                    case "25":
+                        Osa5.Dictionary();
+                        break;
+                    case "26":
+                        Osa5.Kalorite_kalkulaator();
+                        break;
+
                     case "0":
                         tööta = false;
                         Console.WriteLine("Nägemist!");

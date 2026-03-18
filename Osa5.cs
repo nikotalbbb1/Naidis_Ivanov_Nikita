@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Naidis_Ivanov_Nikita
 {
@@ -118,6 +119,50 @@ namespace Naidis_Ivanov_Nikita
             loetelu.AddAfter(loetelu.Find(555), 1);
             foreach (int arv in loetelu)
                 Console.WriteLine(arv);
+
+
+
+        }
+        public static void Dictionary()
+        {
+            Dictionary<int, string> riigid = new Dictionary<int, string>();
+            riigid.Add(1, "Hiina");
+            riigid.Add(2, "Eesti");
+            riigid.Add(3, "Itaalia");
+
+            foreach (var paar in riigid)
+                Console.WriteLine($"{paar.Key} - {paar.Value}");
+
+            string pealinn = riigid[2];
+            Console.WriteLine("pealinn");
+            riigid[2] = "Eestimaa";
+            riigid.Remove(3);
+
+            //Contains
+            bool eesti = riigid.ContainsKey(77);
+            Console.WriteLine(eesti);
+            
+        }
+        public static void Kalorite_kalkulaator()
+        {
+            List<Toode> toode = new List<Toode>();
+            new Toode() { Nimi = "Õun", Kalorid = 52 };
+            new Toode() { Nimi = "Banaan", Kalorid = 89 };
+            new Toode() { Nimi = "Kanafilee", Kalorid = 165 };
+            new Toode() { Nimi = "Riis", Kalorid = 130 };
+            new Toode() { Nimi = "Muna", Kalorid = 155 };
+            new Toode() { Nimi = "Piim", Kalorid = 42 };
+            new Toode() { Nimi = "Leib", Kalorid = 265 };
+            new Toode() { Nimi = "Juust", Kalorid = 350 };
+            new Toode() { Nimi = "Jogurt", Kalorid = 59 };
+            new Toode() { Nimi = "Lõhe", Kalorid = 208 };
+
+            string path = @"..\..\..\Toode.txt";
+            StreamReader text = new StreamReader(path);
+            string laused = text.ReadToEnd();
+            text.Close();
+            Console.WriteLine(laused);
+
         }
 
 

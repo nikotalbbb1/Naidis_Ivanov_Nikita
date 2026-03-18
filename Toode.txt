@@ -1,0 +1,10 @@
+Õun;52
+Banaan;89
+Kanafilee;165
+Riis;130
+Muna;155
+Piim;42
+Leib;265
+Juust;350
+Jogurt;59
+Lõhe;208
