@@ -32,9 +32,9 @@ namespace Naidis_Ivanov_Nikita
             {
                 Console.WriteLine(nimi);
             }
-         
-                
-            
+
+
+
 
         }
         public static void Tuple()
@@ -44,7 +44,7 @@ namespace Naidis_Ivanov_Nikita
         }
         public static void List()
         {
-            
+
             List<string> people = new List<string>() { "Kadi", "Mirje", "Liisa", "Aino", "Kadri", "Tõnis", "Märt", "Jaan", "Peeter", "Andres" };
 
             //add
@@ -115,7 +115,7 @@ namespace Naidis_Ivanov_Nikita
             loetelu.Remove(555);
             foreach (int arv in loetelu)
                 Console.WriteLine(arv);
-            loetelu.AddBefore(loetelu.Find(555),1);
+            loetelu.AddBefore(loetelu.Find(555), 1);
             loetelu.AddAfter(loetelu.Find(555), 1);
             foreach (int arv in loetelu)
                 Console.WriteLine(arv);
@@ -141,32 +141,108 @@ namespace Naidis_Ivanov_Nikita
             //Contains
             bool eesti = riigid.ContainsKey(77);
             Console.WriteLine(eesti);
-            
+
         }
         public static void Kalorite_kalkulaator()
         {
-            List<Toode> toode = new List<Toode>();
-            new Toode() { Nimi = "Õun", Kalorid = 52 };
-            new Toode() { Nimi = "Banaan", Kalorid = 89 };
-            new Toode() { Nimi = "Kanafilee", Kalorid = 165 };
-            new Toode() { Nimi = "Riis", Kalorid = 130 };
-            new Toode() { Nimi = "Muna", Kalorid = 155 };
-            new Toode() { Nimi = "Piim", Kalorid = 42 };
-            new Toode() { Nimi = "Leib", Kalorid = 265 };
-            new Toode() { Nimi = "Juust", Kalorid = 350 };
-            new Toode() { Nimi = "Jogurt", Kalorid = 59 };
-            new Toode() { Nimi = "Lõhe", Kalorid = 208 };
+            List<Toode> toode = new List<Toode>()
+            {
+              new Toode() { Nimi = "Õun", Kalorid = 52 },
+              new Toode() { Nimi = "Banaan", Kalorid = 89 },
+              new Toode() { Nimi = "Kanafilee", Kalorid = 165 },
+              new Toode() { Nimi = "Riis", Kalorid = 130 },
+              new Toode() { Nimi = "Muna", Kalorid = 155 },
+              new Toode() { Nimi = "Piim", Kalorid = 42 },
+              new Toode() { Nimi = "Leib", Kalorid = 265 },
+              new Toode() { Nimi = "Juust", Kalorid = 350 },
+              new Toode() { Nimi = "Jogurt", Kalorid = 59 },
+              new Toode() { Nimi = "Lõhe", Kalorid = 208 }
+            };
 
             string path = @"..\..\..\Toode.txt";
+
+
+            StreamWriter writer = new StreamWriter(path);
+            foreach (Toode t in toode)
+            {
+                writer.WriteLine(t.Nimi + ";" + t.Kalorid);
+            }
+            writer.Close();
+
+
             StreamReader text = new StreamReader(path);
             string laused = text.ReadToEnd();
             text.Close();
-            Console.WriteLine(laused);
+            // Вводим данные пользователя
+            Inimene2 inimene = new Inimene2();
+
+            Console.Write("Sisesta nimi: ");
+            inimene.Nimi = Console.ReadLine();
+
+            Console.Write("Sisesta vanus: ");
+            inimene.Vanus = int.Parse(Console.ReadLine());
+
+            Console.Write("Sisesta sugu (M/N): ");
+            inimene.Sugu = Console.ReadLine().ToUpper();
+
+            Console.Write("Sisesta pikkus (cm): ");
+            inimene.Pikkus = int.Parse(Console.ReadLine());
+
+            Console.Write("Sisesta kaal (kg): ");
+            inimene.Kaal = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nVali aktiivsustase:");
+            Console.WriteLine("1 - Istuv eluviis (vähe või üldse mitte liikumine)");
+            Console.WriteLine("2 - Kerge aktiivsus (1-3 korda nädalas)");
+            Console.WriteLine("3 - Mõõdukas aktiivsus (3-5 korda nädalas)");
+            Console.WriteLine("4 - Kõrge aktiivsus (6-7 korda nädalas)");
+            Console.WriteLine("5 - Väga kõrge aktiivsus (füüsiline töö)");
+            Console.Write("Sisesta valik (1-5): ");
+            inimene.Aktiivsustase = int.Parse(Console.ReadLine());
+
+            // Расчёт BMR по формуле Харриса-Бенедикта
+            double bmr;
+            if (inimene.Sugu == "M")
+            {
+                // Мужчины
+                bmr = 88.36 + (13.4 * inimene.Kaal) + (4.8 * inimene.Pikkus) - (5.7 * inimene.Vanus);
+            }
+            else
+            {
+                // Женщины
+                bmr = 447.6 + (9.2 * inimene.Kaal) + (3.1 * inimene.Pikkus) - (4.3 * inimene.Vanus);
+            }
+
+            // Коэффициент активности
+            int aktiivsusKordaja;
+            switch (inimene.Aktiivsustase)
+            {
+                case 1: aktiivsusKordaja = 1; break;
+                case 2: aktiivsusKordaja = 2; break;
+                case 3: aktiivsusKordaja = 3; break;
+                case 4: aktiivsusKordaja = 4; break;
+                case 5: aktiivsusKordaja = 5; break;
+                default: aktiivsusKordaja = 6; break;
+            }
+
+            double paevanePajadus = bmr * aktiivsusKordaja;
+
+            Console.WriteLine($"\nTere, {inimene.Nimi}!");
+            Console.WriteLine($"Sinu päevane energiavajadus on: {paevanePajadus:F0} kcal");
+            Console.WriteLine("\nToidunimistu päevase energiavajaduse põhjal:");
+            Console.WriteLine($"{"Toode",-15} {"Kalorid/100g",-15} {"Kogus päevas (g)",-15}");
+            Console.WriteLine(new string('-', 45));
+
+            foreach (Toode t in toode)
+            {
+                double kogus = (paevanePajadus / t.Kalorid) * 100;
+                Console.WriteLine($"{t.Nimi,-15} {t.Kalorid,-15} {kogus:F0}");
+            }
+
+
+
 
         }
-
-
-
-
     }
 }
+

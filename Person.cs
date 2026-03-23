@@ -7,7 +7,5 @@ namespace Naidis_Ivanov_Nikita
     public class Person
     {
         public string Name { get; set; }
-
-
     }
 }
