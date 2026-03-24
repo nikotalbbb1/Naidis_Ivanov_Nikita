@@ -238,10 +238,97 @@ namespace Naidis_Ivanov_Nikita
                 double kogus = (paevanePajadus / t.Kalorid) * 100;
                 Console.WriteLine($"{t.Nimi,-15} {t.Kalorid,-15} {kogus:F0}");
             }
+            
+       
 
 
 
+        }
+        public static void Maakonnad_ja_pealinnad()
+        {
+            Dictionary<string, string> maakonad = new Dictionary<string, string>();
+            maakonad.Add("Harjumaa", "Tallinn");
+            maakonad.Add("Pärnumaa", "Pärnu");
+            maakonad.Add("Tartumaa", "Tartu");
+            maakonad.Add("Ida Virumaa", "Narva");
+            Console.WriteLine("Palun sisesta pealinn");
+            string otsi = Console.ReadLine();
+            foreach (KeyValuePair<string, string> paar in maakonad)
+            {
+                if (paar.Value == otsi)
+                {
+                    Console.WriteLine("Maakond on: " + paar.Key);
+                }
+            }
+            Console.WriteLine("Palun sisesta maakond");
+            string otsi2 = Console.ReadLine();
+            if (maakonad.ContainsKey(otsi2))
+            {
+                Console.WriteLine(maakonad[otsi2]);
+            }
+            else
+            {
+                Console.WriteLine("Maakonda ei leitud! Kas soovid lisada? (jah/ei)");
+                string vastus = Console.ReadLine();
 
+                if (vastus == "jah")
+                {
+                    Console.WriteLine("Sisesta pealinn:");
+                    string uusPealinn = Console.ReadLine();
+
+                    maakonad.Add (otsi2, uusPealinn);
+                    Console.WriteLine("Lisatud!");
+                }
+            }
+            Random juhuslik = new Random();
+
+            List<string> võtmed = new List<string>(maakonad.Keys);
+            int õiged = 0;
+            int kokku = maakonad.Count;
+            for (int i = 0; i < maakonad.Count; i++)
+            {
+                int index = juhuslik.Next(maakonad.Count);
+                string juhuMaakond = võtmed[index];
+                Console.WriteLine("Mis on " + juhuMaakond + " pealinn?");
+                string vastus = Console.ReadLine();
+
+                if (vastus == maakonad[juhuMaakond])
+                {
+                    Console.WriteLine("Õige!");
+                    õiged++;
+                }
+                else
+                {
+                    Console.WriteLine("Vale! Õige vastus: " + maakonad[juhuMaakond]);
+                }
+            }
+            Console.WriteLine("Tulemus: " + õiged + "/" + kokku);
+            Console.WriteLine("Protsent: " + (double)õiged / kokku * 100);
+        }
+        public static void Õpilased_ja_hinnete_analüüs()
+        {
+            Dictionary<string, List<int>> opilased = new Dictionary<string, List<int>>();
+            opilased.Add("Mati", new List<int> { 4, 5, 3, 4 });
+            opilased.Add("Kati", new List<int> { 5, 5, 4, 5 });
+            opilased.Add("Jüri", new List<int> { 3, 2, 4, 3 });
+            string parimNimi = "";
+            double parimKeskmine = 0;
+            foreach (KeyValuePair<string, List<int>> õpilane in opilased)
+            {
+                double keskmine = õpilane.Value.Average();
+                Console.WriteLine(õpilane.Key + " keskmine: " + keskmine);
+                if (keskmine > parimKeskmine)
+                {
+                    parimKeskmine = keskmine;
+                    parimNimi = õpilane.Key;
+                    Console.WriteLine($"Parim õpilane: {parimNimi}" +  $"keskmisega: {parimKeskmine}");
+                }
+                var sorteeritud = opilased.OrderBy(x => x.Value.Average());
+                foreach (KeyValuePair<string, List<int>> opilane in sorteeritud)
+                {
+                    Console.WriteLine(õpilane.Key +" - " + õpilane.Value.Average());
+                }
+            }
         }
     }
 }

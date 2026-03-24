@@ -39,6 +39,12 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("--- Viies osa ---");
                 Console.WriteLine("21. Person");
                 Console.WriteLine("22. Tuple");
+                Console.WriteLine("23. List");
+                Console.WriteLine("24. LinkedList");
+                Console.WriteLine("25. Dictionary");
+                Console.WriteLine("26. Kalorite_kalkulaator");
+                Console.WriteLine("27. Maakonnad_ja_pealinnad");
+                Console.WriteLine("28. Õpilased_ja_hinnete_analüüs");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -163,7 +169,12 @@ namespace Naidis_Ivanov_Nikita
                     case "26":
                         Osa5.Kalorite_kalkulaator();
                         break;
-
+                    case "27":
+                        Osa5.Maakonnad_ja_pealinnad();
+                        break;
+                    case "28":
+                        Osa5.Õpilased_ja_hinnete_analüüs();
+                        break;
                     case "0":
                         tööta = false;
                         Console.WriteLine("Nägemist!");
