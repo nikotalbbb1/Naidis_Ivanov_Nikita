@@ -200,20 +200,20 @@ namespace Naidis_Ivanov_Nikita
             Console.Write("Sisesta valik (1-5): ");
             inimene.Aktiivsustase = int.Parse(Console.ReadLine());
 
-            // Расчёт BMR по формуле Харриса-Бенедикта
+            
             double bmr;
             if (inimene.Sugu == "M")
             {
-                // Мужчины
+               
                 bmr = 88.36 + (13.4 * inimene.Kaal) + (4.8 * inimene.Pikkus) - (5.7 * inimene.Vanus);
             }
             else
             {
-                // Женщины
+               
                 bmr = 447.6 + (9.2 * inimene.Kaal) + (3.1 * inimene.Pikkus) - (4.3 * inimene.Vanus);
             }
 
-            // Коэффициент активности
+         
             int aktiivsusKordaja;
             switch (inimene.Aktiivsustase)
             {
@@ -238,11 +238,140 @@ namespace Naidis_Ivanov_Nikita
                 double kogus = (paevanePajadus / t.Kalorid) * 100;
                 Console.WriteLine($"{t.Nimi,-15} {t.Kalorid,-15} {kogus:F0}");
             }
-
+            
+       
 
 
 
         }
+        public static void Maakonnad_ja_pealinnad()
+        {
+            Dictionary<string, string> maakonad = new Dictionary<string, string>();
+            maakonad.Add("Harjumaa", "Tallinn");
+            maakonad.Add("Pärnumaa", "Pärnu");
+            maakonad.Add("Tartumaa", "Tartu");
+            maakonad.Add("Valgamaa", "Valga");
+            Console.WriteLine("Palun sisesta pealinn");
+            string otsi = Console.ReadLine();
+            foreach (KeyValuePair<string, string> paar in maakonad)
+            {
+                if (paar.Value == otsi)
+                {
+                    Console.WriteLine("Maakond on: " + paar.Key);
+                }
+            }
+            Console.WriteLine("Palun sisesta maakond");
+            string otsi2 = Console.ReadLine();
+            if (maakonad.ContainsKey(otsi2))
+            {
+                Console.WriteLine(maakonad[otsi2]);
+            }
+            else
+            {
+                Console.WriteLine("Maakonda ei leitud! Kas soovid lisada? (jah/ei)");
+                string vastus = Console.ReadLine();
+
+                if (vastus == "jah")
+                {
+                    Console.WriteLine("Sisesta pealinn:");
+                    string uusPealinn = Console.ReadLine();
+
+                    maakonad.Add (otsi2, uusPealinn);
+                    Console.WriteLine("Lisatud!");
+                }
+            }
+            Random juhuslik = new Random();
+
+            List<string> võtmed = new List<string>(maakonad.Keys);
+            int õiged = 0;
+            int kokku = maakonad.Count;
+            for (int i = 0; i < maakonad.Count; i++)
+            {
+                int index = juhuslik.Next(maakonad.Count);
+                string juhuMaakond = võtmed[index];
+                Console.WriteLine("Mis on " + juhuMaakond + " pealinn?");
+                string vastus = Console.ReadLine();
+
+                if (vastus == maakonad[juhuMaakond])
+                {
+                    Console.WriteLine("Õige!");
+                    õiged++;
+                }
+                else
+                {
+                    Console.WriteLine("Vale! Õige vastus: " + maakonad[juhuMaakond]);
+                }
+            }
+            Console.WriteLine("Tulemus: " + õiged + "/" + kokku);
+            Console.WriteLine("Protsent: " + (double)õiged / kokku * 100);
+        }
+        public static void Õpilased_ja_hinnete_analüüs()
+        {
+            Dictionary<string, List<int>> opilased = new Dictionary<string, List<int>>();
+            opilased.Add("Mati", new List<int> { 4, 5, 3, 4 });
+            opilased.Add("Kati", new List<int> { 5, 5, 4, 5 });
+            opilased.Add("Jüri", new List<int> { 3, 2, 4, 3 });
+            string parimNimi = "";
+            double parimKeskmine = 0;
+            foreach (KeyValuePair<string, List<int>> õpilane in opilased)
+            {
+                double keskmine = õpilane.Value.Average();
+                Console.WriteLine(õpilane.Key + " keskmine: " + keskmine);
+                if (keskmine > parimKeskmine)
+                {
+                    parimKeskmine = keskmine;
+                    parimNimi = õpilane.Key;
+                    Console.WriteLine($"Parim õpilane: {parimNimi}",  $"keskmisega: {parimKeskmine}");
+                }
+                var sorteeritud = opilased.OrderBy(x => x.Value.Average());
+                foreach (KeyValuePair<string, List<int>> opilane in sorteeritud)
+                {
+                    Console.WriteLine(õpilane.Key +" - " + õpilane.Value.Average());
+                }
+            }
+        }
+        public static void Filmide_kogu()
+        {
+            
+            List<Film> filmid = new List<Film>();
+
+            filmid.Add(new Film { Pealkiri = "The Shawshank Redemption", Aasta = 1994, Zanr = "Draama" });
+            filmid.Add(new Film { Pealkiri = "Inception", Aasta = 2010, Zanr = "Ulme" });
+            filmid.Add(new Film { Pealkiri = "The Dark Knight", Aasta = 2008, Zanr = "Põnevik" });
+            filmid.Add(new Film { Pealkiri = "Schindler's List", Aasta = 1993, Zanr = "Ajalugu" });
+            filmid.Add(new Film { Pealkiri = "Interstellar", Aasta = 2014, Zanr = "Ulme" });
+        }
+        public static void Zanrisse()
+        {
+            Console.WriteLine("Palun sisesta Zanr:");
+            string vastus = Console.ReadLine();
+            List<Film> filmid = new List<Film>();
+            filmid.Add(new Film { Pealkiri = "The Shawshank Redemption", Aasta = 1994, Zanr = "Draama" });
+            filmid.Add(new Film { Pealkiri = "Inception", Aasta = 2010, Zanr = "Ulme" });
+            filmid.Add(new Film { Pealkiri = "The Dark Knight", Aasta = 2008, Zanr = "Põnevik" });
+            filmid.Add(new Film { Pealkiri = "Schindler's List", Aasta = 1993, Zanr = "Ajalugu" });
+            filmid.Add(new Film { Pealkiri = "Interstellar", Aasta = 2014, Zanr = "Ulme" });
+            foreach (Film f in filmid)
+            {
+                if (f.Zanr == vastus)
+                {
+                    Console.WriteLine(f.Pealkiri + " | " + f.Aasta + " | " + f.Zanr);
+                }
+            }
+            
+        }
+        public static void Uusima_filmi()
+        {
+            List<Film> filmid = new List<Film>();
+            filmid.Add(new Film { Pealkiri = "The Shawshank Redemption", Aasta = 1994, Zanr = "Draama" });
+            filmid.Add(new Film { Pealkiri = "Inception", Aasta = 2010, Zanr = "Ulme" });
+            filmid.Add(new Film { Pealkiri = "The Dark Knight", Aasta = 2008, Zanr = "Põnevik" });
+            filmid.Add(new Film { Pealkiri = "Schindler's List", Aasta = 1993, Zanr = "Ajalugu" });
+            filmid.Add(new Film { Pealkiri = "Interstellar", Aasta = 2014, Zanr = "Ulme" });
+            int koigeUusim = filmid.Max(f => f.Aasta);
+            Console.WriteLine($"Kõige uusim film on {koigeUusim}");
+        }
+
     }
 }
 
