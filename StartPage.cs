@@ -175,6 +175,7 @@ namespace Naidis_Ivanov_Nikita
                     case "28":
                         Osa5.Õpilased_ja_hinnete_analüüs();
                         break;
+
                     case "29":
                         Console.WriteLine("Palun vali funktsioon:");
                         Console.WriteLine("1.  Leiavad kõik filmid, mis kuuluvad kindlasse žanrisse.");
@@ -194,6 +195,7 @@ namespace Naidis_Ivanov_Nikita
                                 break;
                         }
                         break;
+
                     case "0":
                         tööta = false;
                         Console.WriteLine("Nägemist!");

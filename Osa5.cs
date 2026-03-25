@@ -173,7 +173,7 @@ namespace Naidis_Ivanov_Nikita
             StreamReader text = new StreamReader(path);
             string laused = text.ReadToEnd();
             text.Close();
-            // Вводим данные пользователя
+        
             Inimene2 inimene = new Inimene2();
 
             Console.Write("Sisesta nimi: ");
@@ -250,7 +250,11 @@ namespace Naidis_Ivanov_Nikita
             maakonad.Add("Harjumaa", "Tallinn");
             maakonad.Add("Pärnumaa", "Pärnu");
             maakonad.Add("Tartumaa", "Tartu");
+
             maakonad.Add("Valgamaa", "Valga");
+
+            maakonad.Add("Ida Virumaa", "Narva");
+
             Console.WriteLine("Palun sisesta pealinn");
             string otsi = Console.ReadLine();
             foreach (KeyValuePair<string, string> paar in maakonad)
@@ -321,7 +325,10 @@ namespace Naidis_Ivanov_Nikita
                 {
                     parimKeskmine = keskmine;
                     parimNimi = õpilane.Key;
+
                     Console.WriteLine($"Parim õpilane: {parimNimi}",  $"keskmisega: {parimKeskmine}");
+
+                    Console.WriteLine($"Parim õpilane: {parimNimi}" +  $"keskmisega: {parimKeskmine}");
                 }
                 var sorteeritud = opilased.OrderBy(x => x.Value.Average());
                 foreach (KeyValuePair<string, List<int>> opilane in sorteeritud)
@@ -330,6 +337,7 @@ namespace Naidis_Ivanov_Nikita
                 }
             }
         }
+
         public static void Filmide_kogu()
         {
             
@@ -371,6 +379,7 @@ namespace Naidis_Ivanov_Nikita
             int koigeUusim = filmid.Max(f => f.Aasta);
             Console.WriteLine($"Kõige uusim film on {koigeUusim}");
         }
+
 
     }
 }
