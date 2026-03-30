@@ -45,6 +45,8 @@ namespace Naidis_Ivanov_Nikita
                 Console.WriteLine("26. Kalorite_kalkulaator");
                 Console.WriteLine("27. Maakonnad_ja_pealinnad");
                 Console.WriteLine("28. Õpilased_ja_hinnete_analüüs");
+                Console.WriteLine("29. Filmide ülesanded");
+                Console.WriteLine("30. Lemmikloomade register");
                 Console.WriteLine("------------------------------");
                 Console.WriteLine("0.  Välju");
                 Console.WriteLine("==============================");
@@ -194,6 +196,9 @@ namespace Naidis_Ivanov_Nikita
 
                                 break;
                         }
+                        break;
+                    case "30":
+                        Osa5.Lemmikloomade_register();
                         break;
 
                     case "0":

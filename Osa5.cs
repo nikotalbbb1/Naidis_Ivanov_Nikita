@@ -379,7 +379,26 @@ namespace Naidis_Ivanov_Nikita
             int koigeUusim = filmid.Max(f => f.Aasta);
             Console.WriteLine($"Kõige uusim film on {koigeUusim}");
         }
+       public static void Lemmikloomade_register()
+       {
+            List<Lemmikloom> lemmikloomad = new List<Lemmikloom>();
+            lemmikloomad.Add(new Lemmikloom { Nimi = "Muki", Liik = "Koer", Vanus = 3 });
+            lemmikloomad.Add(new Lemmikloom { Nimi = "Miisu", Liik = "Kass", Vanus = 5 });
+            lemmikloomad.Add(new Lemmikloom { Nimi = "Piki", Liik = "Lind", Vanus = 2 });
+            lemmikloomad.Add(new Lemmikloom { Nimi = "Tuhkur", Liik = "Küülik", Vanus = 4 });
+            lemmikloomad.Add(new Lemmikloom { Nimi = "Rex", Liik = "Koer", Vanus = 7 });
 
+            Console.WriteLine("Kõik kassid");
+            List<Lemmikloom> koikKassid = lemmikloomad.Where(l => l.Liik == "Kass").ToList();
+            Console.WriteLine(koikKassid);
+            Console.WriteLine("Keskmine vanus");
+            double keskmineVanus = lemmikloomad.Average(l => l.Vanus);
+            Console.WriteLine(keskmineVanus);
+            Console.WriteLine("Kõige Vanem");
+            int koigeVanem = lemmikloomad.Max(l => l.Vanus);
+            Console.WriteLine(koigeVanem);
+
+        }
 
     }
 }
